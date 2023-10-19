@@ -8,7 +8,7 @@ function toggleSidebar() {
 }
 
 window.addEventListener('scroll', function() {
-  var header = document.getElementById('site-header');
+  var header = document.getElementById('header');
   if (window.scrollY > 50) {  // 50px в качестве примера. Вы можете изменить это значение.
     header.classList.add('scrolled');
   } else {

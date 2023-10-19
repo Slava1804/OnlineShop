@@ -2,7 +2,20 @@
 
 {% block content %}
   <div class="container">
-    <div class="preview"></div>
+    <div class="image-container preview-main">
+      <img src="static/assets/images/preview_main.jpg">
+      <div class="image-text">НОВАЯ КОЛЛЕКЦИЯ</div>
+    </div>
+    <div class="preview-catalog">
+      <div class="image-container half-width" onclick="openCatalog()">
+        <img src="static/assets/images/preview_left.jpg">
+        <div class="image-text">НОВИНКИ</div>
+      </div>
+      <div class="image-container half-width" onclick="openCatalog()">
+        <img src="static/assets/images/preview_right.png">
+        <div class="image-text">КОСТЮМЫ</div>
+      </div>
+    </div>
     <!-- catalog and something -->
   </div>
 {% endblock %}

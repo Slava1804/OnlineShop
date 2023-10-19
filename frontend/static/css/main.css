@@ -1,12 +1,52 @@
 .container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preview-main {
+  width: 100%;
+  height: auto;
+}
+
+.preview-catalog {
+  display: flex;
   width: 100%;
 }
 
-.preview {
+.half-width {
+  width: 50%;
+  height: auto;
+  cursor: pointer;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container img {
+  display: block;
   width: 100%;
-  height: 100vh;
-  background-image: url(../assets/images/elina_main_page.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  height: auto;
+}
+
+.image-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  max-width: 80%;
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 6vw;
+}
+
+.preview-main .image-text {
+  color: #fefefeae;
+}
+
+.half-width .image-text {
+  color: #fefefe;
 }
