@@ -115,7 +115,6 @@ body {
 }
 
 .sidebar ul li a {
-  /* color: #fefefe; */
   color: #333333;
   text-decoration: none;
 }
@@ -126,4 +125,11 @@ body {
 
 .hidden {
   display: none;
+}
+
+@media(max-width: 788px) {
+  .header .header-title {
+    font-size: 36px;
+    line-height: 36px;
+  }
 }

@@ -14,9 +14,9 @@ def catalog():
 def basket():
   return render_template('basket.html')
 
-@app.route('/item')
-def item():
-  return render_template('item.html')
+@app.route('/product')
+def product():
+  return render_template('product.html')
 
 if __name__ == '__main__':
   app.run(host='localhost', port=4200)
