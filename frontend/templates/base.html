@@ -2,37 +2,37 @@
 <html lang="en">
 
 <head>
-    <title>{% block title %}Elina{% endblock %}</title>
-    <link rel="stylesheet" href="/static/css/base.css"></link>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/main.css"></link>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
-    <script src="/static/js/base.js"></script>
+  <title>{% block title %}Elina{% endblock %}</title>
+  <link rel="stylesheet" href="/static/css/base.css"></link>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/main.css"></link>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+  <script src="/static/js/base.js"></script>
 </head>
 
 <body>
-    <img class="menu" src="/static/assets/icons/menu.svg" onclick="toggleSidebar()" />
-    <div id="sidebar" class="sidebar sidebar-hidden">
-        <h1 class="sidebar-title">
-            <a href="/">ELINA</a>
-        </h1>
-        <img class="close" src="/static/assets/icons/close.svg" onclick="toggleSidebar()"/>
-        <ul>
-            <li>
-                <a href="/catalog">Catalog</a>
-            </li>
-            <li>
-                <a href="/basket">Basket</a>
-            </li>
-        </ul>
-    </div>
+  <img class="menu" src="/static/assets/icons/menu.svg" onclick="toggleSidebar()" />
+  <div id="sidebar" class="sidebar sidebar-hidden">
+    <h1 class="sidebar-title">
+      <a href="/">ELINA</a>
+    </h1>
+    <img class="close" src="/static/assets/icons/close.svg" onclick="toggleSidebar()"/>
+    <ul>
+      <li>
+        <a href="/catalog">Catalog</a>
+      </li>
+      <li>
+        <a href="/basket">Basket</a>
+      </li>
+    </ul>
+  </div>
 
-    <div id="content">
-        {% block content %}{% endblock %}
-    </div>
+  <div id="content">
+    {% block content %}{% endblock %}
+  </div>
 </body>
 
 </html>
