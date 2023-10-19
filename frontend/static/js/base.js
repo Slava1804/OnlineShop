@@ -6,3 +6,12 @@ function toggleSidebar() {
     sidebar.classList.add('sidebar-hidden');
   }
 }
+
+window.addEventListener('scroll', function() {
+  var header = document.getElementById('site-header');
+  if (window.scrollY > 50) {  // 50px в качестве примера. Вы можете изменить это значение.
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});

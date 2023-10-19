@@ -8,12 +8,37 @@ body {
   margin: 0;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed; 
+  top: 0;
+  width: 100%;
+  transition: background-color 0.3s;
+  z-index: 100;
+}
+
+.header.scrolled {
+  background-color: #ffffff;
+}
+
 .menu {
-  position: absolute;
-  top: 16px;
-  left: 16px;
+  margin-left: 16px;
   cursor: pointer;
-  z-index: 20;
+}
+
+.header .main-word {
+  text-align: center;
+  flex-grow: 2;
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.header.scrolled .main-word {
+  color: #000000;
 }
 
 .close {
