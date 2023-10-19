@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def main():
-  return render_template('main.html')
+  return render_template('main.html', header_style='white-text')
 
 @app.route('/catalog')
 def catalog():

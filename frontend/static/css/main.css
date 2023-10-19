@@ -20,6 +20,14 @@
   cursor: pointer;
 }
 
+.half-width img {
+  transition: 0.2s linear;
+}
+
+.half-width img:hover {
+  opacity: 0.8;
+}
+
 .image-container {
   position: relative;
   overflow: hidden;

@@ -6,21 +6,24 @@ html {
 
 body {
   margin: 0;
+  color: #fefefe;
 }
 
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   position: fixed; 
   top: 0;
   width: 100%;
+  height: 56px;
   transition: background-color 0.3s;
   z-index: 100;
 }
 
 .header.scrolled {
-  background-color: #fefefe;
+  background-color: #fefefe8d;
+  backdrop-filter: blur(10px);
 }
 
 .menu {
@@ -28,16 +31,26 @@ body {
   cursor: pointer;
 }
 
+.header-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 40px;
+}
+
 .header .header-title {
   text-align: center;
-  flex-grow: 2;
-  color: #fefefe;
-  margin-right: 40px;
+  color: #333333;
   font-size: 48px;
   font-weight: 700;
-  line-height: normal;
-  text-wrap: nowrap;
+  line-height: 48px;
+  white-space: nowrap;
   text-decoration: none;
+}
+
+.header .header-title.white-text {
+  color: #fefefe;
 }
 
 .header.scrolled .header-title {
@@ -55,31 +68,36 @@ body {
   min-width: 300px;
   overflow-y: auto;
   font-weight: 700;
-  background-color: #0c1828cb;
+  /* background-color: #0c1828cb; */
+  background-color: #fefefe8d;
   z-index: 100;
   transition: transform 0.3s;
 }
 
 .sidebar-header {
-  padding: 16px;
-  align-items: center;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
 }
 
 .close {
   width: 24px;
   height: 24px;
-  margin-right: 16px;
+  margin: 0 16px;
   cursor: pointer;
 }
 
 .sidebar-title {
-  margin: 0;
+  margin: 0 56px 0 0;
+  text-align: center;
+  flex-grow: 2;
 }
 
 .sidebar-title a {
-  color: #fefefe;
+  /* color: #fefefe; */
+  color: #333333;
   text-decoration: none;
 }
 
@@ -93,11 +111,12 @@ body {
 }
 
 .sidebar ul li {
-  margin: 16px 0 0 0;
+  padding: 16px 0 0 0;
 }
 
 .sidebar ul li a {
-  color: #fefefe;
+  /* color: #fefefe; */
+  color: #333333;
   text-decoration: none;
 }
 

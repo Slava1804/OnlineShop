@@ -5,6 +5,7 @@
   <title>{% block title %}Elina{% endblock %}</title>
   <link rel="stylesheet" href="/static/css/base.css">
   <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/catalog.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,8 +17,10 @@
 
 <body>
   <div id="header" class="header">
-      <img class="menu" src="/static/assets/icons/menu.svg" onclick="toggleSidebar()" />
-      <a class="header-title" href="/">E L I N A</a>
+      <img id="menu" class="menu" src="/static/assets/icons/menu.svg" onclick="toggleSidebar()" />
+      <div class="header-container">
+        <a class="header-title {{ header_style }}" href="/">E L I N A</a>
+      </div>
   </div>
   <div id="sidebar" class="sidebar sidebar-hidden">
     <div class="sidebar-header">
