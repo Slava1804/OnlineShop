@@ -79,7 +79,7 @@
 }
 
 .mini-catalog .item-title {
-  margin-top: 16px;
+  margin: 16px 0 0 16px;
   font-size: 24px;
   font-weight: lighter;
   color: #333333;
@@ -87,8 +87,7 @@
 }
 
 .mini-catalog .item-cost {
-  margin-top: 8px;
-  margin-bottom: 16px;
+  margin: 8px 0 16px 16px;
   font-size: 20px;
   font-weight: lighter;
   color: #333333;
