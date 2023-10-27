@@ -14,6 +14,10 @@ def catalog():
 def basket():
   return render_template('basket.html')
 
+@app.route('/favorite')
+def favorite():
+  return render_template('favorite.html')
+
 @app.route('/product')
 def product():
   return render_template('product.html')
