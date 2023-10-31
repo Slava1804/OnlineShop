@@ -22,5 +22,9 @@ def favorite():
 def product():
   return render_template('product.html')
 
+@app.route('/footer')
+def footer():
+  return render_template('footer.html')
+
 if __name__ == '__main__':
   app.run(host='localhost', port=4200)
