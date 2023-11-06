@@ -123,6 +123,10 @@ body {
   transform: translateX(-100%);
 }
 
+.footer {
+  color: #333333;
+}
+
 .hidden {
   display: none;
 }
