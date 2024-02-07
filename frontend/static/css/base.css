@@ -123,8 +123,52 @@ body {
   transform: translateX(-100%);
 }
 
-.footer {
-  color: #333333;
+footer {
+  position: relative; /* Относительное позиционирование для footer'а */
+  font-size: 38px;
+  color: #606060;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  background-color: rgba(207, 207, 207, 1);
+  display: flex; /* Используем flexbox для контейнера footer'а */
+  height: 600px;
+  justify-content: space-around;
+  align-items: flex-start; /* Выравниваем элементы по верхнему краю */
+}
+
+footer a {
+  margin-top: 40px; /* Равномерно распределяем пространство между элементами */
+  text-decoration: none; /* Убираем подчеркивание, которое часто присутствует у ссылок */
+  color: inherit; /* Наследуем цвет текста от его родительского элемента (footer) */
+}
+
+.bottom-label {
+  font-size: 58px;
+  position: absolute; /* Абсолютное позиционирование */
+  bottom: 37px; /* Размещаем внизу */
+  left: 7%; /* Размещаем по центру */
+  transform: translateX(-50%); /* Центрируем по горизонтали */
+  padding-top: 10px;
+}
+
+.bottom-store {
+  font-weight: normal;
+  font-size: 38px;
+  position: absolute; /* Абсолютное позиционирование */
+  bottom: 10px; /* Размещаем внизу */
+  left: 8.35%; /* Размещаем по центру */
+  transform: translateX(-50%); /* Центрируем по горизонтали */
+}
+
+.social-icons {
+  position: absolute;
+  bottom: 40px; /* Размещаем внизу */
+  left: 50%; /* Размещаем по центру */
+  transform: translateX(-50%); /* Центрируем по горизонтали */
+}
+
+.social-icon {
+  margin-right: 100px;
 }
 
 .hidden {
