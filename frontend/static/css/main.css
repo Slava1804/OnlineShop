@@ -52,7 +52,7 @@
 
 .mini-catalog-title {
   margin: 64px 0 64px 70px;
-  font-size: 48px;
+  font-size: 50px;
   font-weight: 700;
   color: #333333;
   text-align: left;
@@ -73,6 +73,13 @@
   box-sizing: border-box; 
 }
 
+.favorite-icon {
+  position: absolute; /* Абсолютное позиционирование */
+  bottom: 0px; /* Поместим иконку внизу контейнера */
+  left: 50%; /* Поместим иконку по центру горизонтально */
+  transform: translateX(-50%); /* Центрируем иконку относительно родительского контейнера */
+}
+
 .mini-catalog .item-image {
   width: 100%;
   height: auto;
@@ -81,17 +88,18 @@
 .mini-catalog .item-title {
   margin: 16px 0 0 16px;
   font-size: 24px;
-  font-weight: lighter;
+  font-weight: bold;
   color: #333333;
   cursor: pointer;
 }
 
 .mini-catalog .item-cost {
-  margin: 8px 0 16px 16px;
+  margin: 12px 0 16px 16px;
   font-size: 20px;
-  font-weight: lighter;
+  font-weight: bold;
   color: #333333;
 }
+
 
 @media (max-width: 788px) {
   .mini-catalog {

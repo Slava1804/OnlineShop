@@ -60,4 +60,22 @@ function drawMiniCatalog() {
   }
 }
 
+// function addToFavorites(itemId) {
+//   // Проверяем, есть ли уже такой товар в списке избранных
+//   if (!localStorage.getItem('favorites')) {
+//     // Если в локальном хранилище еще нет списка избранных товаров, создаем новый массив
+//     const favorites = [itemId];
+//     localStorage.setItem('favorites', JSON.stringify(favorites));
+//   } else {
+//     // Если список уже существует, добавляем новый товар к существующему списку
+//     const favorites = JSON.parse(localStorage.getItem('favorites'));
+//     if (!favorites.includes(itemId)) {
+//       favorites.push(itemId);
+//       localStorage.setItem('favorites', JSON.stringify(favorites));
+//     }
+//   }
+// }
+// // чат гпт
+
 drawMiniCatalog();
+
