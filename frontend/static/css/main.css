@@ -52,7 +52,7 @@
 
 .mini-catalog-title {
   margin: 64px 0 64px 70px;
-  font-size: 50px;
+  font-size: 48px;
   font-weight: 700;
   color: #333333;
   text-align: left;
@@ -69,15 +69,21 @@
 
 .mini-catalog .catalog-item {
   flex: 1; 
-  margin: 0 16px;
+  margin: 0 5px;
   box-sizing: border-box; 
+  max-width: 25%;
 }
 
-.favorite-icon {
-  position: absolute; /* Абсолютное позиционирование */
-  bottom: 0px; /* Поместим иконку внизу контейнера */
-  left: 50%; /* Поместим иконку по центру горизонтально */
-  transform: translateX(-50%); /* Центрируем иконку относительно родительского контейнера */
+.heart-icon {
+  width: 20px; /* Задайте ширину и высоту в соответствии с вашими требованиями */
+  height: 20px;
+  cursor: pointer; /* Изменение курсора при наведении */
+  margin-left: 440px; /* Пример отступа от левого края элемента */
+}
+
+.heart-icon.favorited {
+  fill: rgb(0, 0, 0); /* Изменение цвета иконки при нажатии (пример) */
+
 }
 
 .mini-catalog .item-image {
@@ -86,16 +92,16 @@
 }
 
 .mini-catalog .item-title {
-  margin: 16px 0 0 16px;
-  font-size: 24px;
+  margin: 16px 5 0 16px;
+  font-size: 16px;
   font-weight: bold;
   color: #333333;
   cursor: pointer;
 }
 
 .mini-catalog .item-cost {
-  margin: 12px 0 16px 16px;
-  font-size: 20px;
+  margin: 12px 5 16px 16px;
+  font-size: 16px;
   font-weight: bold;
   color: #333333;
 }
