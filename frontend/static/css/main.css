@@ -82,9 +82,20 @@
 }
 
 .heart-icon.favorited {
-  fill: rgb(0, 0, 0); /* Изменение цвета иконки при нажатии (пример) */
-
+  cursor: pointer; /* Изменение курсора при наведении */
 }
+
+.cart-icon {
+  width: 25px; /* Задайте ширину и высоту в соответствии с вашими требованиями */
+  height: 25px;
+  cursor: pointer; /* Изменение курсора при наведении */
+  margin-left: 400px;
+}
+
+.cart-icon.full {
+  cursor: pointer; /* Изменение курсора при наведении */
+}
+
 
 .mini-catalog .item-image {
   width: 100%;
