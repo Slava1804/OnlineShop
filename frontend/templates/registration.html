@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Registration</title>
+  <link rel="stylesheet" href="static/css/registration.css">
+</head>
+<body>
+  <div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+      <header class=reg-title>ELINA</header>
+      <form method="post">
+        <input type="text", name="email" placeholder="Введите свой email">
+        <input type="password" name="psw" placeholder="Введите свой пароль">
+        <a href="#">Забыли пароль?</a>
+        <input type="submit" class="button" value="Войти">
+      </form>
+      <div class="signup">
+        <span class="signup">У вас нет аккаунта?
+         <label for="check">Регистрация</label>
+        </span>
+      </div>
+    </div>
+    <div class="registration form">
+      <header>ELINA</header>
+      <form method="post">
+        <input type="text" name="name" placeholder="Введите свое имя">
+        <input type="text" name="surname" placeholder="Введите свою фамилию">
+        <input type="text" name="email" placeholder="Введите свой email">
+        <input type="password" name="password" placeholder="Создайте пароль">
+        <input type="password" placeholder="Повторите пароль">
+        <input type="submit" class="button" value="Создать аккаунт">
+      </form>
+      <div class="signup">
+        <span class="signup">Уже есть аккаунт?
+         <label for="check">Войти</label>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -25,7 +25,7 @@ const miniCatalogItems = [
   },
 ];
 
-let favoriteItems = [];
+let basketItems = [];
 
 function openCatalog(id = undefined) {
   location.href = 'catalog';
@@ -35,22 +35,22 @@ function openItem(id) {
   location.href = `product?id=${id}`;
 }
 
-function addToFavorites(itemId) {
-  if (!favoriteItems.includes(itemId)) {
-    // Добавляем товар в список избранных
-    favoriteItems.push(itemId);
-    console.log(`Item ${itemId} added to favorites!`);
+function addToBasket(itemId) {
+  if (!basketItems.includes(itemId)) {
+    // Добавляем товар в корзину
+    basketItems.push(itemId);
+    console.log(`Item ${itemId} added to basket!`);
   } else {
-    console.log(`Item ${itemId} is already in favorites!`);
+    console.log(`Item ${itemId} is already in basket!`);
   }
 }
 
-function removeFromFavorites(itemId) {
+function removeFromBasket(itemId) {
   // Проверяем, что товар присутствует в списке избранных
-  const index = favoriteItems.indexOf(itemId);
+  const index = basketItems.indexOf(itemId);
   if (index !== -1) {
     // Удаляем товар из списка избранных
-    favoriteItems.splice(index, 1);
+    basketItems.splice(index, 1);
     console.log(`Item ${itemId} removed from favorites!`);
   } else {
     console.log(`Item ${itemId} is not in favorites!`);
@@ -74,21 +74,6 @@ function drawMiniCatalog() {
     itemCostElement.classList.add('item-cost');
     itemCostElement.innerText = `${item.cost} р`;
 
-    const heartSVG = document.createElement('img');
-    heartSVG.classList.add('heart-icon');
-    heartSVG.src = '/static/assets/icons/favorite.svg';
-    heartSVG.addEventListener('click', function() {
-      if (heartSVG.classList.contains('favorited')) {
-        heartSVG.src = '/static/assets/icons/favorite.svg';
-        heartSVG.classList.remove('favorited');
-        removeFromFavorites(item.id);
-      } else {
-        heartSVG.src = '/static/assets/icons/favoriteFill.svg';
-        heartSVG.classList.add('favorited');
-        addToFavorites(item.id);
-      }
-    });
-
     const cartSVG = document.createElement('img');
     cartSVG.classList.add('cart-icon')
     cartSVG.src = '/static/assets/icons/icon_cart_outline.svg';
@@ -96,11 +81,11 @@ function drawMiniCatalog() {
       if (cartSVG.classList.contains('full')) {
         cartSVG.src = '/static/assets/icons/icon_cart_outline.svg';
         cartSVG.classList.remove('full');
-        removeFromFavorites(item.id);
+        removeFromBasket(item.id);
       } else {
         cartSVG.src = '/static/assets/icons/icon_cart.svg';
         cartSVG.classList.add('full');
-        addToFavorites(item.id);
+        addToBasket(item.id);
       }
     });
 
@@ -110,7 +95,6 @@ function drawMiniCatalog() {
     itemElement.appendChild(itemImageElement);
     itemElement.appendChild(itemTitleElement);
     itemElement.appendChild(itemCostElement);
-    itemElement.appendChild(heartSVG); // Добавляем изображение сердца в элемент товара
     itemElement.appendChild(cartSVG); // Добавляем изображение сердца в элемент товара
 
 

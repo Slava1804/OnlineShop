@@ -131,7 +131,7 @@ footer {
   font-weight: bold;
   background-color: rgba(207, 207, 207, 1);
   display: flex; /* Используем flexbox для контейнера footer'а */
-  height: 500px;
+  height: 400px;
   justify-content: space-around;
   align-items: flex-start; /* Выравниваем элементы по верхнему краю */
 }
@@ -164,11 +164,11 @@ footer a {
   position: absolute;
   bottom: 40px; /* Размещаем внизу */
   left: 50%; /* Размещаем по центру */
-  transform: translateX(-50%); /* Центрируем по горизонтали */
+  transform: translateX(-40%); /* Центрируем по горизонтали */
 }
 
 .social-icon {
-  margin-right: 100px;
+  margin-right: 50px;
 }
 
 .hidden {
