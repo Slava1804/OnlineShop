@@ -1,15 +1,15 @@
+<!-- basket.html -->
 {% extends "base.html" %}
-
-{% block title %}Elina | Favorite{% endblock %}
-
+{% block title %}Elina | Basket{% endblock %}
 {% block content %}
-  <h1>FAVORITE</h1>
-    <!-- Контейнер для карточек избранных товаров -->
-    <div id="favoriteProducts" class="products-container">
-      <!-- Сюда будут добавлены карточки товаров -->
-    </div>
-  
-    <!-- Подключаем JavaScript-скрипт для динамического добавления карточек товаров -->
-    <script src="/static/js/basket.js"></script>
-  
+<div class="basket-catalog-title">Корзина</div>
+
+  <div id="basketContainer" class="products-container">
+    <!-- Содержимое корзины будет добавлено сюда динамически -->
+  </div>
+  <script src="{{ url_for('static', filename='/js/cart.js') }}"></script>
+  <script>
+    // При загрузке страницы отображаем содержимое корзины
+    displayCartItemsInBasket();
+  </script>
 {% endblock %}

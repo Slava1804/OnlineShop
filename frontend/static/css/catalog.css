@@ -58,3 +58,26 @@ a.no-underline {
   color: #333333;
 }
 
+.cart-icon {
+  width: 25px; /* Задайте ширину и высоту в соответствии с вашими требованиями */
+  height: 25px;
+  cursor: pointer; /* Изменение курсора при наведении */
+  margin-left: 435px; /* Пример отступа от левого края элемента */
+}
+
+.cart-icon.full {
+  cursor: pointer; /* Изменение курсора при наведении */
+}
+
+.cart-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+}

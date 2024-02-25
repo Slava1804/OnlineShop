@@ -1,4 +1,4 @@
-from flask import render_template, Flask, redirect, url_for, session, request, abort, g
+from flask import render_template, Flask, redirect, url_for, session, request, abort, g, jsonify
 import sqlite3
 import os
 
@@ -57,7 +57,7 @@ def catalog():
 
 @app.route('/basket')
 def basket():
-  return render_template('basket.html')
+  return render_template('basket.html', cart=cart)
 
 
 @app.route('/product')
@@ -70,6 +70,54 @@ def profile(username):
     abort(401)
 
   return render_template('profile.html')
+
+cart = {}
+
+@app.route('/add_to_cart', methods=['POST'])
+def add_to_cart():
+    if request.method == 'POST':
+        # Получаем ID товара, который пользователь добавил в корзину
+        product_id = request.form['product_id']
+
+        # Проверяем, есть ли уже такой товар в корзине
+        if product_id in cart:
+            # Если товар уже есть в корзине, удаляем его из корзины
+            del cart[product_id]
+            # Возвращаем JSON-ответ с сообщением об успешном удалении товара из корзины
+            return jsonify({'message': 'Товар успешно удален из корзины'})
+        else:
+            # Если товара еще нет в корзине, добавляем его в корзину
+            cart[product_id] = 1
+            # Возвращаем JSON-ответ с сообщением об успешном добавлении товара в корзину
+            return jsonify({'message': 'Товар успешно добавлен в корзину'})
+
+
+
+@app.route('/get_product_info', methods=['POST'])
+def get_product_info():
+    data = request.json
+    product_id = data.get('product_id')
+
+    if product_id:
+        db = get_db()
+        cursor = db.execute('SELECT title, price, imageurl FROM catalog WHERE id = ?', (product_id,))
+        product_info = cursor.fetchone()
+
+        if product_info:
+            product_data = {
+                'title': product_info['title'],
+                'price': product_info['price'],
+                'imageurl': product_info['imageurl']
+            }
+            return jsonify(product_data)
+        else:
+            return jsonify({'error': 'Product not found'}), 404
+    else:
+        return jsonify({'error': 'Product ID is missing'}), 400
+
+
+
+
 
 if __name__ == '__main__':
   app.run(host='localhost', port=4200, debug=True)

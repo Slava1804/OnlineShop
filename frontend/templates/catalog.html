@@ -2,20 +2,36 @@
 
 {% block title %}Elina | Catalog{% endblock %}
 
-
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='catalog.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/catalog.css') }}">
 <div class="basic-catalog-title">Каталог</div>
 <div class="basic-catalog">
   {% for product in products %}
     <div class="basic-catalog-item">
-      <a class='no-underline' href="{{ url_for('product', id=product['id']) }}">
-        <div class="basic-image-container">
-          <img class="basic-item-image" src="{{ product['imageurl'] }}" alt="{{ product['title'] }}">
+      <div class="product-info">
+        <a class='no-underline' href="{{ url_for('product', id=product['id']) }}">
+          <div class="basic-image-container">
+            <img class="basic-item-image" src="{{ product['imageurl'] }}" alt="{{ product['title'] }}">
+          </div>
+        </a>
+        <div class="product-info">
+          <div class="basic-item-title">{{ product['title'] }}</div>
+          <p class="basic-item-cost">{{ product['price'] }}</p>
+          <form action="{{ url_for('add_to_cart') }}" method="post">
+            <input type="hidden" name="product_id" value="{{ product['id'] }}">
+            <button class="cart-button" type="submit">
+              {% if product['id'] in cart %}
+                <img class="cart-icon" src="{{ url_for('static', filename='/assets/icons/icon_cart.svg') }}" data-added="true">
+              {% else %}
+                <img class="cart-icon" src="{{ url_for('static', filename='/assets/icons/icon_cart_outline.svg') }}" data-added="false">
+              {% endif %}
+            </button>
+          </form>
         </div>
-        <div class="basic-item-title">{{ product['title'] }}</div>
-        <p class="basic-item-cost">{{ product['price'] }}</p>
-      </a>
+      </div>
     </div>
   {% endfor %}
+</div>
+
+<script src="{{ url_for('static', filename='/js/cart.js') }}"></script>
 {% endblock %}
