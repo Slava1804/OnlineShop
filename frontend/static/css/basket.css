@@ -10,6 +10,14 @@
   color: #333333;
   text-align: left;
 }
+
+.empty-basket-catalog-title {
+  margin: 64px 0 64px 70px;
+  font-size: 48px;
+  font-weight: 700;
+  color: #333333;
+  text-align: left;
+}
 /*
 .basket-image-container {
   position: relative;

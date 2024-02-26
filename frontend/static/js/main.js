@@ -35,15 +35,15 @@ function openItem(id) {
   location.href = `product?id=${id}`;
 }
 
-function addToBasket(itemId) {
-  if (!basketItems.includes(itemId)) {
-    // Добавляем товар в корзину
-    basketItems.push(itemId);
-    console.log(`Item ${itemId} added to basket!`);
-  } else {
-    console.log(`Item ${itemId} is already in basket!`);
-  }
-}
+// function addToBasket(itemId) {
+//   if (!basketItems.includes(itemId)) {
+//     // Добавляем товар в корзину
+//     basketItems.push(itemId);
+//     console.log(`Item ${itemId} added to basket!`);
+//   } else {
+//     console.log(`Item ${itemId} is already in basket!`);
+//   }
+// }
 
 function removeFromBasket(itemId) {
   // Проверяем, что товар присутствует в списке избранных

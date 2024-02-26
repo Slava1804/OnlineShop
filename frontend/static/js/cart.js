@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Функция добавления товара в Local Storage
 function addToLocalStorage(productId) {
+    console.log('TEST')
     let cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
     cartItems[productId] = true;
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -86,12 +87,17 @@ function displayCartItemsInBasket() {
     if (Object.keys(cartItems).length === 0) { // Проверяем, пуста ли корзина
         // Если корзина пуста, добавляем сообщение "Корзина пуста"
         let emptyBasketMessage = document.createElement('div');
-        productTitle.classList.add('basket-catalog-title');
+        emptyBasketMessage.classList.add('empty-basket-catalog-title');
         emptyBasketMessage.textContent = 'Корзина пуста';
         basketContainer.appendChild(emptyBasketMessage);
     } else {
-    
-        // Проходимся по товарам в корзине и получаем информацию о каждом товаре из базы данных
+        // Создаем сообщение "Корзина"
+        let basketMessage = document.createElement('div');
+        basketMessage.classList.add('basket-catalog-title');
+        basketMessage.textContent = 'Корзина';
+        basketContainer.appendChild(basketMessage);
+
+        // Проходимся по товарам в корзине и отображаем каждый товар
         for (let productId in cartItems) {
             fetch('/get_product_info', {
                 method: 'POST',
@@ -105,19 +111,19 @@ function displayCartItemsInBasket() {
                 // Создаем карточку товара на основе полученной информации
                 let productCard = document.createElement('div');
                 productCard.classList.add('product-container', 'product-info');
-
+        
                 let productTitle = document.createElement('div');
                 productTitle.classList.add('product-title');
                 productTitle.textContent = productInfo.title;
-
+        
                 let productPrice = document.createElement('div');
                 productPrice.classList.add('product-price');
                 productPrice.textContent = 'Цена: ' + productInfo.price;
-
+        
                 let productImageurl = document.createElement('img');
                 productImageurl.classList.add('product-image');
                 productImageurl.src = productInfo.imageurl;
-
+        
                 // Добавляем элементы карточки товара в контейнер корзины
                 productCard.appendChild(productTitle);
                 productCard.appendChild(productPrice);
@@ -128,4 +134,3 @@ function displayCartItemsInBasket() {
         }
     }
 }
-        
