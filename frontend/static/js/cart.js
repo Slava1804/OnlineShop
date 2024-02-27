@@ -134,3 +134,22 @@ function displayCartItemsInBasket() {
         }
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Получаем все элементы с классом 'page-number'
+    const pageNumbers = document.querySelectorAll('.page-number');
+
+    // Добавляем обработчик событий для каждого элемента
+    pageNumbers.forEach(pageNumber => {
+        pageNumber.addEventListener('click', function() {
+            // Удаляем класс 'active' у всех номеров страниц
+            pageNumbers.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Добавляем класс 'active' только для текущего номера страницы
+            this.classList.add('active');
+        });
+    });
+});
+
