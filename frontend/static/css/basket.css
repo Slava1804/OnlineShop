@@ -16,29 +16,64 @@
 }
 
 .product-container {
-  flex-basis: calc(25% - 10px);
-  margin: 0 90px 20px;
+  display: flex; /* Используем flexbox для расположения элементов внутри карточки товара */
+  flex-direction: column; /* Располагаем элементы вертикально */
+  align-items: flex-start; /* Центрируем элементы по горизонтали внутри карточки товара */
+  margin: 0 90px 90px;
   box-sizing: border-box;
 }
 
-/* Изображение товара */
 .product-image {
-  width: 310px; /* Ширина изображения */
+  width: 310px;
   height: 380px;
-  height: auto; /* Автоматическая высота */
-  margin-right: 0px; /* Отступ справа */
+  height: auto;
+  margin-right: 0px;
 }
 
 .product-title {
-  margin-left: 450px;
+  margin-top: 10px; /* Добавляем отступ сверху для названия и цены */
   font-size: 16px;
-  font-weight: bold;
   color: #333333;
 }
 
-/* Цена товара */
 .product-price {
-  margin-left: 450px;
+  margin-top: 10px; /* Добавляем отступ сверху для названия и цены */
   font-size: 16px;
   color: #333333;
+  /* text-align: center; */
+}
+
+.product-price {
+  font-weight: bold; /* Делаем цену жирной */
+}
+
+.delete-button {
+  margin: -26px 1px 10px 288px; /* Добавляем отступ сверху для названия и цены */
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.delete-button svg {
+  width: 40px; /* Размер иконки можете настроить по вашему выбору */
+  fill: #333; /* Цвет иконки */
+}
+
+/* Стили для выбора количества */
+.quantity-selector {
+  width: 80px; /* Ширина элемента выбора количества */
+  padding: 8px; /* Внутренний отступ */
+  font-size: 14px; /* Размер шрифта */
+  border: 1px solid #ccc; /* Граница */
+  border-radius: 5px; /* Закругленные углы */
+}
+
+/* Стили для выбора размера */
+.size-selector {
+  width: 120px; /* Ширина элемента выбора размера */
+  padding: 8px; /* Внутренний отступ */
+  font-size: 14px; /* Размер шрифта */
+  border: 1px solid #ccc; /* Граница */
+  border-radius: 5px; /* Закругленные углы */
 }

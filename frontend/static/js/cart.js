@@ -111,23 +111,56 @@ function displayCartItemsInBasket() {
                 // Создаем карточку товара на основе полученной информации
                 let productCard = document.createElement('div');
                 productCard.classList.add('product-container', 'product-info');
-        
-                let productTitle = document.createElement('div');
-                productTitle.classList.add('product-title');
-                productTitle.textContent = productInfo.title;
-        
-                let productPrice = document.createElement('div');
-                productPrice.classList.add('product-price');
-                productPrice.textContent = 'Цена: ' + productInfo.price;
-        
+
+                // Изображение товара
                 let productImageurl = document.createElement('img');
                 productImageurl.classList.add('product-image');
                 productImageurl.src = productInfo.imageurl;
-        
-                // Добавляем элементы карточки товара в контейнер корзины
-                productCard.appendChild(productTitle);
-                productCard.appendChild(productPrice);
                 productCard.appendChild(productImageurl);
+
+                // Описание товара
+                let productDescription = document.createElement('div');
+                productDescription.classList.add('product-description');
+
+                // Название товара
+                let productTitle = document.createElement('div');
+                productTitle.classList.add('product-title');
+                productTitle.textContent = productInfo.title;
+                productDescription.appendChild(productTitle);
+
+                // Цена товара
+                let productPrice = document.createElement('div');
+                productPrice.classList.add('product-price');
+                productPrice.textContent = 'Цена: ' + productInfo.price;
+                productDescription.appendChild(productPrice);
+
+                // Элементы для выбора количества товара, размера и кнопка удаления
+                let productActions = document.createElement('div');
+                productActions.classList.add('product-actions');
+                // Здесь добавьте элементы для выбора количества, размера и кнопки удаления
+
+                let quantityInput = document.createElement('input');
+                quantityInput.type = 'number';
+                quantityInput.value = 1;
+                quantityInput.min = 1;
+                productActions.appendChild(quantityInput);
+
+                let sizeSelect = document.createElement('select');
+                sizeSelect.innerHTML = '<option value="XS">XS</option><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option>';
+                productActions.appendChild(sizeSelect);
+
+                let deleteIcon = document.createElement('img');
+
+                // Устанавливаем атрибуты
+                deleteIcon.src = '/static/assets/icons/delete.svg';
+                
+                // Добавляем класс для стилей, если нужно
+                deleteIcon.classList.add('delete-button');
+                
+                // Добавляем элементы карточки товара в контейнер корзины
+                productCard.appendChild(productDescription);
+                productCard.appendChild(productActions);
+                productCard.appendChild(deleteIcon)
                 basketContainer.appendChild(productCard);
             })
             .catch(error => console.error('Ошибка при получении информации о товаре:', error));
