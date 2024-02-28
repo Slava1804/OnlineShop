@@ -64,6 +64,11 @@ def basket():
 def product():
   return render_template('product.html')
 
+@app.route('/about')
+def about():
+  return render_template('about.html')
+
+
 @app.route('/profile/<username>')
 def profile(username):
   if 'userLogged' not in session or session['userLogged'] != username:
