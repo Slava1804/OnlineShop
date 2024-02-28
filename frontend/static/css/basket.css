@@ -7,7 +7,7 @@
 }
 
 .empty-basket-catalog-title {
-  height: 75px;
+  height: 820px;
   margin: 64px 0 0px 70px;
   font-size: 48px;
   font-weight: 700;
@@ -88,10 +88,10 @@
 /* Стили для контейнера формы */
 .checkout-form {
   position: fixed;
-  top: 200px; /* Настройте в зависимости от вашего дизайна */
-  right: 250px; /* Расположение справа */
+  top: 170px; /* Настройте в зависимости от вашего дизайна */
+  right: 350px; /* Расположение справа */
   width: 500px; /* Ширина формы */
-  height: 650px;
+  height: 500px;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 5px;
@@ -124,13 +124,16 @@ hr {
 
 /* Стили для кнопки "Оформить заказ" */
 #submitOrder {
+  display: block; /* Делаем кнопку блочным элементом */
+  width: 100%; /* Ширина кнопки равна ширине контейнера формы */
   background-color: #333333;
   color: #ffffff;
-  padding: 10px 20px;
+  padding: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  margin-top: 45px;
 }
 
 #submitOrder:hover {

@@ -40,13 +40,54 @@ def close_db(error):
 
 @app.route('/registration', methods=['POST', 'GET'])
 def registration():
-  if 'userLogged' in session:
-    return redirect(url_for('profile', username=session['userLogged']))
-  elif request.method == 'POST' and request.form['email'] == 'slava@mail.ru' and request.form['psw'] == 'psw':
-    session['userLogged'] = request.form['email']
-    return redirect(url_for('profile', username=session['userLogged']))
+    if 'userLogged' in session:
+        return redirect(url_for('profile', username=session['userLogged']))
+    elif request.method == 'POST':
+        name = request.form['name']
+        surname = request.form['surname']
+        email = request.form['email']
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
 
-  return render_template('registration.html')
+        if password != confirm_password:
+            return render_template('registration.html', error="Пароли не совпадают")
+
+        db = get_db()
+        cursor = db.execute('SELECT * FROM users WHERE email = ?', (email,))
+        user = cursor.fetchone()
+
+        if user:
+            return redirect(url_for('login'))
+        else:
+            db.execute('INSERT INTO users (name, surname, email, password) VALUES (?, ?, ?, ?)',
+                       (name, surname, email, password))
+            db.commit()
+            session['userLogged'] = email
+            return redirect(url_for('profile', username=session['userLogged']))
+
+    return render_template('registration.html')
+
+
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+    if 'userLogged' in session:
+        return redirect(url_for('profile', username=session['userLogged']))
+    elif request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+
+        db = get_db()
+        cursor = db.execute('SELECT * FROM users WHERE email = ? AND password = ?', (email, password))
+        user = cursor.fetchone()
+
+        if user:
+            session['userLogged'] = email
+            return redirect(url_for('profile', username=session['userLogged']))
+        else:
+            return render_template('login.html', error="Неверный email или пароль")
+
+    return render_template('profile.html')
+
 
 @app.route('/catalog')
 def catalog():
@@ -120,8 +161,10 @@ def get_product_info():
     else:
         return jsonify({'error': 'Product ID is missing'}), 400
 
-
-
+@app.route('/logout')
+def logout():
+    session.pop('userLogged', None)
+    return redirect(url_for('main'))
 
 
 if __name__ == '__main__':
