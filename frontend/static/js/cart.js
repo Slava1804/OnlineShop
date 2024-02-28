@@ -75,7 +75,90 @@ function updateCartIcons() {
 
 document.addEventListener('DOMContentLoaded', function() {
     displayCartItemsInBasket();
+    displayCheckoutForm();
+    updateCartIcons;
 });
+
+function displayCheckoutForm() {
+    let basketContainer = document.getElementById('basketContainer');
+
+    // Создаем форму оформления заказа
+    let checkoutForm = document.createElement('div');
+    checkoutForm.classList.add('checkout-form');
+
+    // 1. Способ доставки (варианты выбора)
+    let deliveryMethodLabel = document.createElement('label');
+    deliveryMethodLabel.textContent = 'Способ доставки:';
+    let deliveryMethodSelect = document.createElement('select');
+    deliveryMethodSelect.name = 'deliveryMethod';
+    let deliveryOptions = ['Курьером', 'Почтой', 'Пункт самовывоза', 'Забрать из магазина'];
+    deliveryOptions.forEach(option => {
+        let deliveryOption = document.createElement('option');
+        deliveryOption.value = option;
+        deliveryOption.textContent = option;
+        deliveryMethodSelect.appendChild(deliveryOption);
+    });
+    checkoutForm.appendChild(deliveryMethodLabel);
+    checkoutForm.appendChild(deliveryMethodSelect);
+
+    // Разделительная линия
+    let separatorLine1 = document.createElement('hr');
+    checkoutForm.appendChild(separatorLine1);
+
+    // 2. Адрес доставки (пользователь заполняет)
+    let addressLabel = document.createElement('label');
+    addressLabel.textContent = 'Адрес доставки:';
+    let addressInput = document.createElement('input');
+    addressInput.type = 'text';
+    addressInput.name = 'address';
+    checkoutForm.appendChild(addressLabel);
+    checkoutForm.appendChild(addressInput);
+
+    // Разделительная линия
+    let separatorLine2 = document.createElement('hr');
+    checkoutForm.appendChild(separatorLine2);
+
+    // 3. Получатель (пользователь заполняет)
+    let recipientLabel = document.createElement('label');
+    recipientLabel.textContent = 'Получатель:';
+    let recipientInput = document.createElement('input');
+    recipientInput.type = 'text';
+    recipientInput.name = 'recipient';
+    checkoutForm.appendChild(recipientLabel);
+    checkoutForm.appendChild(recipientInput);
+
+    // Разделительная линия
+    let separatorLine3 = document.createElement('hr');
+    checkoutForm.appendChild(separatorLine3);
+
+    // 4. Способ оплаты (варианты выбора)
+    let paymentMethodLabel = document.createElement('label');
+    paymentMethodLabel.textContent = 'Способ оплаты:';
+    let paymentMethodSelect = document.createElement('select');
+    paymentMethodSelect.name = 'paymentMethod';
+    let paymentOptions = ['Банковской картой', 'При получении', 'Подарочный сертификат'];
+    paymentOptions.forEach(option => {
+        let paymentOption = document.createElement('option');
+        paymentOption.value = option;
+        paymentOption.textContent = option;
+        paymentMethodSelect.appendChild(paymentOption);
+    });
+    checkoutForm.appendChild(paymentMethodLabel);
+    checkoutForm.appendChild(paymentMethodSelect);
+
+    // Кнопка "Оформить заказ"
+    let submitOrderButton = document.createElement('button');
+    submitOrderButton.textContent = 'Оформить заказ';
+    submitOrderButton.id = 'submitOrder';
+    submitOrderButton.addEventListener('click', function() {
+        // Здесь добавьте логику для оформления заказа
+        // Например, сбор информации из формы и отправка данных на сервер
+    });
+    checkoutForm.appendChild(submitOrderButton);
+
+    // Добавляем форму в контейнер корзины
+    basketContainer.appendChild(checkoutForm);
+}
 
 function displayCartItemsInBasket() {
     let cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
@@ -89,6 +172,7 @@ function displayCartItemsInBasket() {
         let emptyBasketMessage = document.createElement('div');
         emptyBasketMessage.classList.add('empty-basket-catalog-title');
         emptyBasketMessage.textContent = 'Корзина пуста';
+
         basketContainer.appendChild(emptyBasketMessage);
     } else {
         // Создаем сообщение "Корзина"
@@ -134,29 +218,71 @@ function displayCartItemsInBasket() {
                 productPrice.textContent = 'Цена: ' + productInfo.price;
                 productDescription.appendChild(productPrice);
 
-                // Элементы для выбора количества товара, размера и кнопка удаления
                 let productActions = document.createElement('div');
                 productActions.classList.add('product-actions');
-                // Здесь добавьте элементы для выбора количества, размера и кнопки удаления
 
                 let quantityInput = document.createElement('input');
+                quantityInput.classList.add('quantity-selector')
                 quantityInput.type = 'number';
                 quantityInput.value = 1;
                 quantityInput.min = 1;
                 productActions.appendChild(quantityInput);
 
                 let sizeSelect = document.createElement('select');
+                sizeSelect.classList.add('size-selector')
                 sizeSelect.innerHTML = '<option value="XS">XS</option><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option>';
                 productActions.appendChild(sizeSelect);
 
                 let deleteIcon = document.createElement('img');
-
-                // Устанавливаем атрибуты
                 deleteIcon.src = '/static/assets/icons/delete.svg';
-                
-                // Добавляем класс для стилей, если нужно
                 deleteIcon.classList.add('delete-button');
+
+                deleteIcon.addEventListener('click', function() {
+                    // Получаем ID товара, который нужно удалить
+                    let productIdToDelete = productInfo.id;
+                    
+                    // Удаляем товар из корзины
+                    deleteItemFromCart(productId);
+                    
+                    // Удаляем товар из Local Storage
+                    removeFromLocalStorage(productId);
+                    
+                    // Удаляем карточку товара из корзины на странице
+                    console.log('товар удален')
+                    productCard.remove();
+
+                });
+
+                // Функция удаления товара из корзины
+                function deleteItemFromCart(productId) {
+                    // Получаем текущий список товаров из Local Storage
+                    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
                 
+                    // Проверяем, существует ли товар с указанным productId в корзине
+                    if (cartItems.hasOwnProperty(productId)) {
+                        // Удаляем товар с указанным productId из объекта корзины
+                        delete cartItems[productId];
+                
+                        // Обновляем данные в Local Storage
+                        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                
+                        // Возвращаем true, чтобы показать, что товар успешно удален из корзины
+                        return true;
+                    } else {
+                        // Если товар с указанным productId не найден в корзине, возвращаем false
+                        return false;
+                    }
+                }
+
+                // Функция удаления товара из Local Storage
+                function removeFromLocalStorage(productId) {
+                    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+                    delete cartItems[productId];
+                    console.log('товар удален из local storage')
+
+                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                }
+
                 // Добавляем элементы карточки товара в контейнер корзины
                 productCard.appendChild(productDescription);
                 productCard.appendChild(productActions);
@@ -168,6 +294,7 @@ function displayCartItemsInBasket() {
     }
 }
 
+// Нумерация страниц
 document.addEventListener('DOMContentLoaded', function() {
     // Получаем все элементы с классом 'page-number'
     const pageNumbers = document.querySelectorAll('.page-number');

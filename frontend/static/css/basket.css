@@ -7,12 +7,19 @@
 }
 
 .empty-basket-catalog-title {
-  height: 1080px;
-  margin: 64px 0 64px 70px;
+  height: 75px;
+  margin: 64px 0 0px 70px;
   font-size: 48px;
   font-weight: 700;
   color: #333333;
   text-align: left;
+}
+
+.phrase-conitnue {
+  text-align: center; /* Выравниваем текст по центру */
+  margin: 640px 100px 0px 70px;
+  /* margin-top: 900px;  */
+  color: #333333;
 }
 
 .product-container {
@@ -37,7 +44,7 @@
 }
 
 .product-price {
-  margin-top: 10px; /* Добавляем отступ сверху для названия и цены */
+  margin: 10px 10px 10px 0px; /* Добавляем отступ сверху для названия и цены */
   font-size: 16px;
   color: #333333;
   /* text-align: center; */
@@ -48,7 +55,7 @@
 }
 
 .delete-button {
-  margin: -26px 1px 10px 288px; /* Добавляем отступ сверху для названия и цены */
+  margin: -35px 1px 10px 280px; /* Добавляем отступ сверху для названия и цены */
   background: none;
   border: none;
   cursor: pointer;
@@ -62,8 +69,8 @@
 
 /* Стили для выбора количества */
 .quantity-selector {
-  width: 80px; /* Ширина элемента выбора количества */
-  padding: 8px; /* Внутренний отступ */
+  width: 60px; /* Ширина элемента выбора количества */
+  padding: 9px; /* Внутренний отступ */
   font-size: 14px; /* Размер шрифта */
   border: 1px solid #ccc; /* Граница */
   border-radius: 5px; /* Закругленные углы */
@@ -71,9 +78,62 @@
 
 /* Стили для выбора размера */
 .size-selector {
-  width: 120px; /* Ширина элемента выбора размера */
+  width: 80px; /* Ширина элемента выбора размера */
   padding: 8px; /* Внутренний отступ */
   font-size: 14px; /* Размер шрифта */
-  border: 1px solid #ccc; /* Граница */
+  border: 1px solid #333333; /* Граница */
   border-radius: 5px; /* Закругленные углы */
 }
+
+/* Стили для контейнера формы */
+.checkout-form {
+  position: fixed;
+  top: 200px; /* Настройте в зависимости от вашего дизайна */
+  right: 250px; /* Расположение справа */
+  width: 500px; /* Ширина формы */
+  height: 650px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  overflow-y: auto; /* Добавим прокрутку, если содержимое формы больше её высоты */
+  max-height: calc(100vh - 100px); /* Высота формы зависит от высоты окна просмотра */
+}
+
+/* Стили для разделительной линии */
+hr {
+  border: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+/* Стили для полей формы */
+.checkout-form label {
+  display: block;
+  color: #333333;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.checkout-form input[type="text"] {
+  width: calc(100% - 16px); /* Учитываем внутренние отступы */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box; /* Учитываем границы внутри элемента */
+}
+
+/* Стили для кнопки "Оформить заказ" */
+#submitOrder {
+  background-color: #333333;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#submitOrder:hover {
+  background-color: #333333;
+}
+
