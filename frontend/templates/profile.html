@@ -3,7 +3,25 @@
 {% block title %}Elina | Profile{% endblock %}
 
 {% block content %}
-  <h1>Profile</h1>
-  <a href="{{ url_for('logout') }}">Выйти</a>
-  
+  <div class="title-profile">Мой аккаунт</div>
+  <div class="profile-container">
+    <div class="user-info">
+      <div class="info-item">
+        <div class="info-label">Электронная почта:</div>
+        <div class="info-value">{{ email }}</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Имя:</div>
+        <div class="info-value">{{ name }}</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Фамилия:</div>
+        <div class="info-value">{{ surname }}</div>
+      </div>
+    </div>
+    <div class="greeting">Здравствуйте, {{ name }}!</div>
+  </div>
+  <div class="button-container">
+    <a href="{{ url_for('logout') }}" class="logout-btn">Выйти</a>
+  </div>
 {% endblock %}

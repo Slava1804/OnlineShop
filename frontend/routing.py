@@ -110,12 +110,33 @@ def about():
   return render_template('about.html')
 
 
+from flask import render_template, session, abort
+
 @app.route('/profile/<username>')
 def profile(username):
-  if 'userLogged' not in session or session['userLogged'] != username:
-    abort(401)
+    if 'userLogged' not in session or session['userLogged'] != username:
+        abort(401)
 
-  return render_template('profile.html')
+    # Получаем имя пользователя из сессии
+    user_email = session['userLogged']
+
+    # Подключаемся к базе данных
+    db = get_db()
+    cursor = db.execute('SELECT name, surname, email FROM users WHERE email = ?', (user_email,))
+    user_data = cursor.fetchone()
+
+    # Проверяем, найден ли пользователь в базе данных
+    if user_data:
+        # Распаковываем данные пользователя
+        name = user_data['name']
+        surname = user_data['surname']
+        email = user_data['email']
+
+        # Передаем данные в шаблон для отображения
+        return render_template('profile.html', name=name, surname=surname, email=email)
+    else:
+        # Если пользователь не найден, возвращаем ошибку
+        return render_template('error.html', message='Пользователь не найден')
 
 cart = {}
 

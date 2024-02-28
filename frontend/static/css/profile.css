@@ -1,0 +1,72 @@
+.title-profile {
+  font-size: 48px;
+  font-weight: 700;
+  color: #333333;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.title-profile {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.profile-container {
+  max-width: 400px; /* Устанавливаем максимальную ширину рамочки */
+  margin: 0 auto; /* Центрируем рамочку по горизонтали */
+  padding: 20px; /* Добавляем немного отступа вокруг содержимого */
+  border: 1px solid #ccc; /* Добавляем рамку */
+  border-radius: 5px; /* Делаем скругленные углы */
+}
+
+.user-info {
+  margin-bottom: 20px;
+  color: #333333;
+
+}
+
+.info-item {
+  margin-bottom: 10px; /* Добавляем отступ между каждым элементом информации */
+  color: #333333;
+
+}
+
+.info-label {
+  margin-bottom: 10px; /* Добавляем отступ между каждым элементом информации */
+  font-weight: bold;
+  color: #333333;
+}
+
+.info-value {
+  flex-grow: 1;
+  color: #333333;
+
+}
+
+.greeting {
+  margin-top: 0; /* Убираем верхний отступ */
+  margin-bottom: 20px; /* Добавляем нижний отступ между приветствием и данными пользователя */
+  color: #333333;
+  font-weight: bold;
+}
+
+.button-container {
+  text-align: center; /* Выравниваем содержимое по центру */
+  margin-top: 20px; /* Добавляем отступ сверху, если необходимо */
+  margin-bottom: 120px;
+}
+
+.logout-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff;
+  text-align: center;
+  padding: 12px 75px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #333333;
+}
+
