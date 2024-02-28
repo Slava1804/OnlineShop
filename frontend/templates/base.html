@@ -33,7 +33,11 @@
     </div>
     <ul>
       <li>
-        <a href="/registration">Войти</a>
+        {% if 'userLogged' in session %}
+          <a href="/profile/{{ session['userLogged'] }}">Профиль</a>
+        {% else %}
+          <a href="/registration">Войти</a>
+        {% endif %}
       </li>
       <li>
         <a href="/catalog">Каталог</a>
