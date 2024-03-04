@@ -11,11 +11,11 @@
   <div class="container">
     <input type="checkbox" id="check">
     <div class="login form">
-      <header class=reg-title>ELINA</header>
+      <a class=reg-title href="/">ELINA</a>
       <form method="post" action="/login">
         <input type="text" name="email" placeholder="Введите свой email">
         <input type="password" name="password" placeholder="Введите свой пароль">
-        <a href="#">Забыли пароль?</a>
+        <a href="/">Забыли пароль?</a>
         <input type="submit" class="button" value="Войти">
       </form>
       <div class="signup">
@@ -25,13 +25,13 @@
       </div>
     </div>
     <div class="registration form">
-      <header>ELINA</header>
+      <a class=reg-title href="/">ELINA</a>
       <form method="post" action="/registration">
-        <input type="text" name="name" placeholder="Введите свое имя">
-        <input type="text" name="surname" placeholder="Введите свою фамилию">
-        <input type="text" name="email" placeholder="Введите свой email">
-        <input type="password" name="password" placeholder="Создайте пароль">
-        <input type="password" name="confirm_password" placeholder="Повторите пароль">
+        <input type="text" name="name" placeholder="Введите свое имя" required>
+        <input type="text" name="surname" placeholder="Введите свою фамилию" required>
+        <input type="text" name="email" placeholder="Введите свой email" required>
+        <input type="password" name="password" placeholder="Создайте пароль" required>
+        <input type="password" name="confirm_password" placeholder="Повторите пароль" required>
         <input type="submit" class="button" value="Создать аккаунт">
     </form>
       <div class="signup">

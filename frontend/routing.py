@@ -1,6 +1,7 @@
 from flask import render_template, Flask, redirect, url_for, session, request, abort, g, jsonify
 import sqlite3
 import os
+import re
 
 DATABASE = '/tmp/OnlineShop.db'
 DEBUG = True
@@ -40,14 +41,22 @@ def close_db(error):
 
 @app.route('/registration', methods=['POST', 'GET'])
 def registration():
-    if 'userLogged' in session:
-        return redirect(url_for('profile', username=session['userLogged']))
-    elif request.method == 'POST':
+    # if 'userLogged' in session:
+        # return redirect(url_for('profile', username=session['userLogged']))
+    if request.method == 'POST':
         name = request.form['name']
         surname = request.form['surname']
         email = request.form['email']
         password = request.form['password']
         confirm_password = request.form['confirm_password']
+        
+        if not name or not surname or not email or not password or not confirm_password:
+            return render_template('registration.html', error="Пожалуйста, заполните все поля")
+        
+        if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
+            return render_template('registration.html', error="Некорректный формат электронной почты")
+
+
 
         if password != confirm_password:
             return render_template('registration.html', error="Пароли не совпадают")
@@ -84,7 +93,7 @@ def login():
             session['userLogged'] = email
             return redirect(url_for('profile', username=session['userLogged']))
         else:
-            return render_template('login.html', error="Неверный email или пароль")
+            return render_template('registration.html', error="Неверный email или пароль")
 
     return render_template('profile.html')
 
@@ -187,6 +196,9 @@ def logout():
     session.pop('userLogged', None)
     return redirect(url_for('main'))
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 if __name__ == '__main__':
   app.run(host='localhost', port=4200, debug=True)
