@@ -3,6 +3,26 @@
 {% block title %}Elina | Product{% endblock %}
 
 {% block content %}
-  <h1 id="product"></h1>
+  <div class="product-info-card">
+    <img id="product-image" src="" alt="Product Image">
+    <div class="product-info">
+      <h1 id="product-title"></h1>
+      <p id="product-price"></p>
+      <div class="size-selector">
+        <label for="size-s">S</label>
+        <label for="size-s">S</label>
+        <label for="size-s">S</label>
+        <label for="size-s">S</label>
+        <label for="size-s">S</label>
+        <label for="size-s">S</label>
+        <!-- Кнопки выбора размера здесь -->
+      </div>
+      <div class="quality-info">
+        <h2>О качестве продукции</h2>
+        <p>Здесь информация о том, как фирма качественно создает одежду.</p>
+      </div>
+      <button id="add-to-cart-btn">Добавить в корзину</button>
+    </div>
+  </div>
   <script src="/static/js/product.js"></script>
 {% endblock %}

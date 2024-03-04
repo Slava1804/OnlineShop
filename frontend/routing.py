@@ -32,7 +32,10 @@ def get_db():
 @app.route('/')
 def main():
   db = get_db()
-  return render_template('main.html', header_style='white-text', menu=[])
+  cursor = db.execute('SELECT id, title, price, imageurl FROM catalog LIMIT 4')
+  products = cursor.fetchall()
+  return render_template('main.html', header_style='white-text', menu=[], products=products)
+
 
 @app.teardown_appcontext
 def close_db(error):
@@ -41,8 +44,6 @@ def close_db(error):
 
 @app.route('/registration', methods=['POST', 'GET'])
 def registration():
-    # if 'userLogged' in session:
-        # return redirect(url_for('profile', username=session['userLogged']))
     if request.method == 'POST':
         name = request.form['name']
         surname = request.form['surname']

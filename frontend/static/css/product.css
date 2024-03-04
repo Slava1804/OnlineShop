@@ -1,3 +1,64 @@
-h1 {
-  color: #333333;
+.product-info-card {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden; /* Чтобы обойти флоат */
+}
+
+.product-info-card img {
+  float: left; /* Размещаем изображение слева */
+  margin-right: 20px; /* Добавляем отступ между изображением и текстом */
+}
+
+.product-info {
+  overflow: hidden; /* Чтобы обойти флоат */
+}
+
+#add-to-cart-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+#add-to-cart-btn:hover {
+  background-color: #0056b3;
+}
+
+.size-selector {
+  margin-top: 20px;
+}
+
+.size-selector label {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: #ccc;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.size-selector input[type="radio"] {
+  display: none;
+}
+
+.size-selector input[type="radio"]:checked + label {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.quality-info {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }

@@ -17,12 +17,38 @@
       </div>
     </div>
     <div class="mini-catalog-title">Бестселлеры</div>
-    <div id="miniCatalog" class="mini-catalog"></div>
+    <div class="basic-catalog">
+      {% for product in products %}
+        <div class="basic-catalog-item">
+          <div class="product-info">
+            <a class='no-underline' href="{{ url_for('product', id=product['id']) }}">
+              <div class="basic-image-container">
+                <img class="basic-item-image" src="{{ product['imageurl'] }}" alt="{{ product['title'] }}">
+              </div>
+            </a>
+            <div class="product-info">
+              <div class="basic-item-title">{{ product['title'] }}</div>
+              <p class="basic-item-cost">{{ product['price'] }}</p>
+              <form action="{{ url_for('add_to_cart') }}" method="post">
+                <input type="hidden" name="product_id" value="{{ product['id'] }}">
+                <button class="cart-button" type="submit">
+                  {% if product['id'] in cart %}
+                    <img class="cart-icon" src="{{ url_for('static', filename='/assets/icons/icon_cart.svg') }}" data-added="true">
+                  {% else %}
+                    <img class="cart-icon" src="{{ url_for('static', filename='/assets/icons/icon_cart_outline.svg') }}" data-added="false">
+                  {% endif %}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
 
     <!-- catalog and something -->
   <div>
   </div>
   </div>
 
-  <script src="/static/js/main.js"></script>
+  <script src="/static/js/cart.js"></script>
 {% endblock %}
