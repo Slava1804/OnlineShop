@@ -36,7 +36,23 @@ document.addEventListener('DOMContentLoaded', function() {
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
   
       // Оповещение пользователя об успешном добавлении товара в корзину
-    //   alert('Товар успешно добавлен в корзину');
+      // alert('Товар успешно добавлен в корзину');
+      document.getElementById('success-message').style.display = 'block'
+      setTimeout(function() {
+        document.getElementById('success-message').style.display = 'none';
+    }, 3000); // Скрываем сообщение через 3 секунды (3000 миллисекунд)
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const sizeLabels = document.querySelectorAll('.size-label');
+    sizeLabels.forEach(function(label) {
+      label.addEventListener('click', function() {
+        sizeLabels.forEach(function(label) {
+          label.classList.remove('selected');
+        });
+        label.classList.add('selected');
+      });
     });
   });
   

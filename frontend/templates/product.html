@@ -5,23 +5,34 @@
 {% block content %}
   <div class="product-info-card">
     <img id="product-image" src="" alt="Product Image">
-    <div class="product-info">
+    <div class="product-info-square">
       <h1 id="product-title"></h1>
       <p id="product-price"></p>
-      <div class="size-selector">
-        <label for="size-s">S</label>
-        <label for="size-s">S</label>
-        <label for="size-s">S</label>
-        <label for="size-s">S</label>
-        <label for="size-s">S</label>
-        <label for="size-s">S</label>
-        <!-- Кнопки выбора размера здесь -->
-      </div>
-      <div class="quality-info">
-        <h2>О качестве продукции</h2>
-        <p>Здесь информация о том, как фирма качественно создает одежду.</p>
+      <div class="size-selector-product">
+        <input type="radio" id="size-xs" name="size" value="XS">
+        <label for="size-xs" class="size-label">XS</label>
+        
+        <input type="radio" id="size-s" name="size" value="S">
+        <label for="size-s" class="size-label">S</label>
+        
+        <input type="radio" id="size-m" name="size" value="M">
+        <label for="size-m" class="size-label">M</label>
+        
+        <input type="radio" id="size-l" name="size" value="L">
+        <label for="size-l" class="size-label">L</label>
+        
+        <input type="radio" id="size-xl" name="size" value="XL">
+        <label for="size-xl" class="size-label">XL</label>
+        
+        <input type="radio" id="size-xxl" name="size" value="XXL">
+        <label for="size-xxl" class="size-label">XXL</label>
       </div>
       <button id="add-to-cart-btn">Добавить в корзину</button>
+      <div id="success-message" style="display: none; color: #333; font-weight: bold; margin-top: 20px">Товар успешно добавлен</div>
+      <div class="quality-info">
+        <h2>E L I N A  —	 для вас</h2>
+        <p>ELINA – это стиль, качество и комфорт. Мы предлагаем капсульный гардероб для женщин и мужчин, в котором есть место как универсальной базе, так и долговременным трендам. Наша философия воплощается в каждой детали - от выбора тканей до аккуратного пошива. Мы стремимся к созданию одежды, которая не только выглядит хорошо, но и чувствует себя комфортно на любом этапе вашей жизни. Наша цель - помочь вам выразить свою индивидуальность и уверенность через ваш стиль, оставаясь при этом верными нашим принципам качества и элегантности.</p>
+      </div>
     </div>
   </div>
   <script src="/static/js/product.js"></script>

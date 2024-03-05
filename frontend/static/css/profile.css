@@ -54,7 +54,7 @@
 .button-container {
   text-align: center; /* Выравниваем содержимое по центру */
   margin-top: 20px; /* Добавляем отступ сверху, если необходимо */
-  margin-bottom: 120px;
+  margin-bottom: 450px;
 }
 
 .logout-btn {
