@@ -67,7 +67,7 @@ def registration():
         user = cursor.fetchone()
 
         if user:
-            return redirect(url_for('login'))
+            return redirect(url_for('registration'))
         else:
             db.execute('INSERT INTO users (name, surname, email, password) VALUES (?, ?, ?, ?)',
                        (name, surname, email, password))
