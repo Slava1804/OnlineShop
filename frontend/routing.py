@@ -194,12 +194,12 @@ def get_product_info():
 
 @app.route('/logout')
 def logout():
-    session.pop('userLogged', None)
-    return redirect(url_for('main'))
+  session.pop('userLogged', None)
+  return redirect(url_for('main'))
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html'), 404
+  return render_template('404.html'), 404
 
 if __name__ == '__main__':
   app.run(host='localhost', port=4200, debug=True)

@@ -313,3 +313,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+function openCatalog(id = undefined) {
+    location.href = 'catalog';
+}

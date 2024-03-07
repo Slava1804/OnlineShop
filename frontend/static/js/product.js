@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('success-message').style.display = 'block'
       setTimeout(function() {
         document.getElementById('success-message').style.display = 'none';
-    }, 3000); // Скрываем сообщение через 3 секунды (3000 миллисекунд)
+    }, 3000); // Скрываем сообщение через 3 секунды
     });
   });
 
