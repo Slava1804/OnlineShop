@@ -101,3 +101,13 @@ a.reg-title {
 input:invalid {
   border: 1px solid #333333;
 }
+/* static/css/registration.css */
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+}
+
+input.error {
+  border: 2px solid red;
+}

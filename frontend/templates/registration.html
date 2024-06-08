@@ -5,16 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Registration</title>
-  <link rel="stylesheet" href="static/css/registration.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/registration.css') }}">
 </head>
 <body>
   <div class="container">
     <input type="checkbox" id="check">
     <div class="login form">
-      <a class=reg-title href="/">ELINA</a>
+      <a class="reg-title" href="/">ELINA</a>
       <form method="post" action="/login">
-        <input type="text" name="email" placeholder="Введите свой email">
-        <input type="password" name="password" placeholder="Введите свой пароль">
+        {% if error and error_field == 'login' %}
+        <div id="login-error" class="error-message">{{ error }}</div>
+        <input type="text" id="login-email" name="email" placeholder="Введите свой email" class="error">
+        <input type="password" id="login-password" name="password" placeholder="Введите свой пароль" class="error">
+        {% else %}
+        <input type="text" id="login-email" name="email" placeholder="Введите свой email">
+        <input type="password" id="login-password" name="password" placeholder="Введите свой пароль">
+        {% endif %}
         <a href="/">Забыли пароль?</a>
         <input type="submit" class="button" value="Войти">
       </form>
@@ -25,15 +31,27 @@
       </div>
     </div>
     <div class="registration form">
-      <a class=reg-title href="/">ELINA</a>
+      <a class="reg-title" href="/">ELINA</a>
       <form method="post" action="/registration">
+        {% if error %}
+        <div id="registration-error" class="error-message">{{ error }}</div>
+        {% endif %}
         <input type="text" name="name" placeholder="Введите свое имя" required>
         <input type="text" name="surname" placeholder="Введите свою фамилию" required>
-        <input type="text" name="email" placeholder="Введите свой email" required>
-        <input type="password" name="password" placeholder="Создайте пароль" required>
-        <input type="password" name="confirm_password" placeholder="Повторите пароль" required>
+        {% if error and error_field == 'email' %}
+        <input type="text" id="registration-email" name="email" placeholder="Введите свой email" class="error" required>
+        {% else %}
+        <input type="text" id="registration-email" name="email" placeholder="Введите свой email" required>
+        {% endif %}
+        {% if error and error_field == 'password' %}
+        <input type="password" id="registration-password" name="password" placeholder="Создайте пароль" class="error" required>
+        <input type="password" id="registration-confirm-password" name="confirm_password" placeholder="Повторите пароль" class="error" required>
+        {% else %}
+        <input type="password" id="registration-password" name="password" placeholder="Создайте пароль" required>
+        <input type="password" id="registration-confirm-password" name="confirm_password" placeholder="Повторите пароль" required>
+        {% endif %}
         <input type="submit" class="button" value="Создать аккаунт">
-    </form>
+      </form>
       <div class="signup">
         <span class="signup">Уже есть аккаунт?
          <label for="check">Войти</label>

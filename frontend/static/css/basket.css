@@ -16,15 +16,15 @@
 }
 
 .phrase-conitnue {
-  text-align: center; /* Выравниваем текст по центру */
+  text-align: center;
   margin: 640px 100px 0px 70px;
   color: #333333;
 }
 
 .product-container {
-  display: flex; /* Используем flexbox для расположения элементов внутри карточки товара */
-  flex-direction: column; /* Располагаем элементы вертикально */
-  align-items: flex-start; /* Центрируем элементы по горизонтали внутри карточки товара */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin: 0 90px 90px;
   box-sizing: border-box;
 }
@@ -37,23 +37,23 @@
 }
 
 .product-title {
-  margin-top: 10px; /* Добавляем отступ сверху для названия и цены */
+  margin-top: 10px;
   font-size: 16px;
   color: #333333;
 }
 
 .product-price {
-  margin: 10px 10px 10px 0px; /* Добавляем отступ сверху для названия и цены */
+  margin: 10px 10px 10px 0px;
   font-size: 16px;
   color: #333333;
 }
 
 .product-price {
-  font-weight: bold; /* Делаем цену жирной */
+  font-weight: bold;
 }
 
 .delete-button {
-  margin: -35px 1px 10px 280px; /* Добавляем отступ сверху для названия и цены */
+  margin: -35px 1px 10px 280px;
   background: none;
   border: none;
   cursor: pointer;
@@ -61,40 +61,40 @@
 }
 
 .delete-button svg {
-  width: 40px; /* Размер иконки можете настроить по вашему выбору */
-  fill: #333; /* Цвет иконки */
+  width: 40px;
+  fill: #333;
 }
 
 /* Стили для выбора количества */
 .quantity-selector {
-  width: 60px; /* Ширина элемента выбора количества */
-  padding: 9px; /* Внутренний отступ */
-  font-size: 14px; /* Размер шрифта */
-  border: 1px solid #ccc; /* Граница */
-  border-radius: 5px; /* Закругленные углы */
+  width: 60px;
+  padding: 9px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 /* Стили для выбора размера */
 .size-selector {
-  width: 80px; /* Ширина элемента выбора размера */
-  padding: 8px; /* Внутренний отступ */
-  font-size: 14px; /* Размер шрифта */
-  border: 1px solid #333333; /* Граница */
-  border-radius: 5px; /* Закругленные углы */
+  width: 80px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #333333;
+  border-radius: 5px;
 }
 
 /* Стили для контейнера формы */
 .checkout-form {
   position: fixed;
-  top: 170px; /* Настройте в зависимости от вашего дизайна */
-  right: 350px; /* Расположение справа */
-  width: 500px; /* Ширина формы */
+  top: 170px;
+  right: 350px;
+  width: 500px; 
   height: 500px;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 5px;
-  overflow-y: auto; /* Добавим прокрутку, если содержимое формы больше её высоты */
-  max-height: calc(100vh - 100px); /* Высота формы зависит от высоты окна просмотра */
+  overflow-y: auto; 
+  max-height: calc(100vh - 100px); 
 }
 
 /* Стили для разделительной линии */
@@ -112,18 +112,18 @@ hr {
 }
 
 .checkout-form input[type="text"] {
-  width: calc(100% - 16px); /* Учитываем внутренние отступы */
+  width: calc(100% - 16px);
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 10px;
-  box-sizing: border-box; /* Учитываем границы внутри элемента */
+  box-sizing: border-box; 
 }
 
 /* Стили для кнопки "Оформить заказ" */
 #submitOrder {
-  display: block; /* Делаем кнопку блочным элементом */
-  width: 100%; /* Ширина кнопки равна ширине контейнера формы */
+  display: block; 
+  width: 100%; 
   background-color: #333333;
   color: #ffffff;
   padding: 10px;

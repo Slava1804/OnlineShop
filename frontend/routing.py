@@ -52,22 +52,20 @@ def registration():
         confirm_password = request.form['confirm_password']
         
         if not name or not surname or not email or not password or not confirm_password:
-            return render_template('registration.html', error="Пожалуйста, заполните все поля")
+            return render_template('registration.html', error="Пожалуйста, заполните все поля", error_field="all")
         
         if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
-            return render_template('registration.html', error="Некорректный формат электронной почты")
-
-
+            return render_template('registration.html', error="Некорректный формат электронной почты", error_field="email")
 
         if password != confirm_password:
-            return render_template('registration.html', error="Пароли не совпадают")
+            return render_template('registration.html', error="Пароли не совпадают", error_field="password")
 
         db = get_db()
         cursor = db.execute('SELECT * FROM users WHERE email = ?', (email,))
         user = cursor.fetchone()
 
         if user:
-            return redirect(url_for('registration'))
+            return render_template('registration.html', error="Этот email уже зарегистрирован", error_field="email")
         else:
             db.execute('INSERT INTO users (name, surname, email, password) VALUES (?, ?, ?, ?)',
                        (name, surname, email, password))
@@ -94,7 +92,7 @@ def login():
             session['userLogged'] = email
             return redirect(url_for('profile', username=session['userLogged']))
         else:
-            return render_template('registration.html', error="Неверный email или пароль")
+            return render_template('registration.html', error="Неверный email или пароль", error_field="login")
 
     return render_template('profile.html')
 
@@ -118,9 +116,6 @@ def product():
 @app.route('/about')
 def about():
   return render_template('about.html')
-
-
-from flask import render_template, session, abort
 
 @app.route('/profile/<username>')
 def profile(username):

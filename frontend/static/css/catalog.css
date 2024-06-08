@@ -59,14 +59,14 @@ a.no-underline {
 }
 
 .cart-icon {
-  width: 25px; /* Задайте ширину и высоту в соответствии с вашими требованиями */
+  width: 25px;
   height: 25px;
-  cursor: pointer; /* Изменение курсора при наведении */
-  margin: -910px 1px 10px 435px; /* Пример отступа от левого края элемента */
+  cursor: pointer;
+  margin: -910px 1px 10px 435px;
 }
 
 .cart-icon.full {
-  cursor: pointer; /* Изменение курсора при наведении */
+  cursor: pointer;
 }
 
 .cart-button {

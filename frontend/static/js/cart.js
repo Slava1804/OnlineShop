@@ -151,8 +151,6 @@ function displayCheckoutForm() {
     submitOrderButton.textContent = 'Оформить заказ';
     submitOrderButton.id = 'submitOrder';
     submitOrderButton.addEventListener('click', function() {
-        // Здесь добавьте логику для оформления заказа
-        // Например, сбор информации из формы и отправка данных на сервер
     });
     checkoutForm.appendChild(submitOrderButton);
 
